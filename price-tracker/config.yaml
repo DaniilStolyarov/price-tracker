@@ -1,0 +1,7 @@
+path: D:/2 kurs/spo/price-tracker/price-tracker/menu
+train: borsch/images
+val: borsch/images
+
+
+names:
+    0: borsch    
