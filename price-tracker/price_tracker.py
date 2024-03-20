@@ -6,7 +6,6 @@ from food import Food
 food = Food()
 tracker = Tracker()
 
-#tracker.train()
 tracker.load("best.pt")
 
 from fastapi import FastAPI, Form, Response, UploadFile, File

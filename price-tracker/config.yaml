@@ -6,3 +6,5 @@ val: images
 names:
     0: borsch
     1: mashed_potatoes
+    2: macaroni
+    3: cutlet
