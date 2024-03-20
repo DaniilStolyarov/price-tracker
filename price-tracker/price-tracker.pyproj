@@ -22,8 +22,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="add_data.py" />
+    <Compile Include="food.py" />
+    <Compile Include="tracker.py" />
     <Compile Include="price_tracker.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.yaml" />
+    <Content Include="food_list.json" />
+    <Content Include="public\index.html" />
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
@@ -37,7 +44,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.yaml" />
+    <Folder Include="public\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

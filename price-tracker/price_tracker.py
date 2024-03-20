@@ -1,6 +1,38 @@
-from ultralytics import YOLO
+from io import BytesIO
+from PIL import Image
+from tracker import Tracker
+from food import Food
 
-model = YOLO("yolov8n.yaml")
+food = Food()
+tracker = Tracker()
 
-results = model.train(data="config.yaml", epochs=100, workers=0)
+#tracker.train()
+tracker.load("best.pt")
+
+from fastapi import FastAPI, Form, Response, UploadFile, File
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, PlainTextResponse
+from fastapi.staticfiles import StaticFiles
+from typing import Annotated
+app = FastAPI()
+
+ 
+
+@app.get("/")
+def read_root():
+    return FileResponse("./public/index.html", media_type="text/html; charset=utf-8")
+
+
+@app.get("/price")
+def get_price(class_name):
+    return food.get_price(class_name)
+
+@app.post("/track/")
+async def track_upload_file(image : UploadFile = Form()):
+    image_bytes = image.file.read()
+    image_stream = BytesIO(image_bytes)
+    imageFile = Image.open(image_stream)
+    results = tracker.track(imageFile)
+    
+    return JSONResponse(content=results.tojson())
+
 

@@ -1,7 +1,8 @@
 path: D:/2 kurs/spo/price-tracker/price-tracker/menu
-train: borsch/images
-val: borsch/images
+train: images
+val: images
 
 
 names:
-    0: borsch    
+    0: borsch
+    1: mashed_potatoes
