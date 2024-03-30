@@ -23,3 +23,7 @@ class Tracker:
         
         return results[0]
         
+
+if __name__ == '__main__':
+    tracker = Tracker()
+    tracker.train()
