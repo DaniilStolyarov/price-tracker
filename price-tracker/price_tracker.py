@@ -9,7 +9,7 @@ tracker = Tracker()
 tracker.load("best.pt")
 
 from fastapi import FastAPI, Form, Response, UploadFile, File
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from typing import Annotated
