@@ -9,13 +9,23 @@ tracker = Tracker()
 tracker.load("best.pt")
 
 from fastapi import FastAPI, Form, Response, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from typing import Annotated
 app = FastAPI()
 
- 
+origins = [
+    "http://localhost",
+    "https://localhost",
+    "http://localhost:8080"]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"])
 @app.get("/")
 def read_root():
     return FileResponse("./public/index.html", media_type="text/html; charset=utf-8")
