@@ -17,16 +17,17 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
-    "http://localhost:80",
     "https://localhost",
-    "http://localhost:8080"]
+    "http://localhost:8080"
+]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"])
+    allow_headers=["*"],
+)
 @app.get("/")
 def read_root():
     return FileResponse("./public/index.html", media_type="text/html; charset=utf-8")
@@ -36,7 +37,7 @@ def read_root():
 def get_price(class_name):
     return food.get_price(class_name)
 
-@app.post("/track/")
+@app.post("/track")
 async def track_upload_file(image : UploadFile = Form()):
     image_bytes = image.file.read()
     image_stream = BytesIO(image_bytes)
