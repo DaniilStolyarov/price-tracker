@@ -14,7 +14,7 @@ from fastapi.staticfiles import StaticFiles
 from typing import Annotated
 app = FastAPI()
 
- 
+
 
 @app.get("/")
 def read_root():
@@ -25,7 +25,7 @@ def read_root():
 def get_price(class_name):
     return food.get_price(class_name)
 
-@app.post("/track/")
+@app.post("/track")
 async def track_upload_file(image : UploadFile = Form()):
     image_bytes = image.file.read()
     image_stream = BytesIO(image_bytes)

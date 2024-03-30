@@ -9,11 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddScoped(sp =>
-    new HttpClient
-    {
-        BaseAddress = new Uri("http://185.185.71.248:13845")
-    });
+builder.Services.AddHttpClient();
 builder.Services
     .AddBlazorise(options =>
     {
