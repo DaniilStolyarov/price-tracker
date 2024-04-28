@@ -6,7 +6,31 @@
 @using System.Net.Http.Headers
 @using System.Text.RegularExpressions
 @using blazor.Client.model
-<FileEdit Changed="OnChanged"/>
+<PageTitle>Окно просмотра</PageTitle>
+<Card>
+    <CardHeader>
+        <Heading Size.Is4>Окно просмотра</Heading>
+    </CardHeader>
+    <CardBody>
+        <Field>
+            <FileEdit Changed="OnChanged" />
+        </Field>
+        <Bar>
+            <BarBrand>
+                <Button Color="Color.Primary">Снять снова</Button>
+                <Button Color="Color.Secondary">Отметить отсутствующий</Button>
+            </BarBrand>
+        </Bar>
+        <Divider />
+        <Field>
+            <div class="image-preview" style="background-color: grey; width: 60%; height: 300px"> </div>
+        </Field>
+    </CardBody>
+    <CardFooter>
+        <Button Color="Color.Primary">Продолжить</Button>
+    </CardFooter>
+</Card>
+
 @code {
 
     string fileContent;

@@ -1,0 +1,36 @@
+﻿@page "/food"
+@rendermode InteractiveWebAssembly
+@inject HttpClient httpClient
+@inject IJSRuntime jsRuntime
+@using Newtonsoft.Json
+@using System.Net.Http.Headers
+@using System.Text.RegularExpressions
+@using blazor.Client.model
+@using Blazorise
+
+<PageTitle>Итог</PageTitle> 
+<Card>
+    <CardHeader>
+        <Heading Size.Is4>Итог</Heading>
+    </CardHeader>
+    <CardBody>
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHeaderCell>Наменование</TableHeaderCell>
+                    <TableHeaderCell>Цена</TableHeaderCell>
+                    <TableHeaderCell>Кол</TableHeaderCell>
+                    <TableHeaderCell>Цена*Кол</TableHeaderCell>
+                </TableRow>
+            </TableHeader>
+             
+        </Table>
+    </CardBody>
+    <CardFooter>
+        <Text>Итого: 9999 руб</Text>      
+    </CardFooter>
+    <Button Color="Color.Primary">Оплатить</Button>
+</Card>
+@code {
+
+}

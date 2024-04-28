@@ -1,0 +1,31 @@
+﻿@page "/sber"
+@rendermode InteractiveWebAssembly
+@inject HttpClient httpClient
+@inject IJSRuntime jsRuntime
+@using Newtonsoft.Json
+@using System.Net.Http.Headers
+@using System.Text.RegularExpressions
+@using blazor.Client.model
+@using Blazorise
+<PageTitle>Оплата</PageTitle>
+<Card>
+    <CardHeader>
+        <Heading >Оплата</Heading>
+    </CardHeader>
+    <CardBody>
+    <Field>
+            <div class="image-preview" style="background-color: grey; width: 60%; height: 300px; display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;">
+</div>
+    </Field>
+    </CardBody>
+    <CardFooter>
+        <CardText TextAlignment="TextAlignment.Center">SberPay/СБП</CardText>      
+    </CardFooter>
+</Card>
+@code {
+
+}
